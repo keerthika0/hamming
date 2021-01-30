@@ -7,3 +7,4 @@ const bodyparser = require('body-parser');app.use(bodyparser.json());var mysqlCo
         password:'Kee@12_sQl',
         database:'Employee'
 });
+mysql
