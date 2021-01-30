@@ -1,4 +1,5 @@
 # hamming
 
 
-hello
+hi
+hello slave
