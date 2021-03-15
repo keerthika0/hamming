@@ -1,0 +1,112 @@
+<div class="verification-responsive">
+  <div  nz-row class="verification-form">
+    <div nz-col nzSpan="1"></div>
+    <div nz-col nzSpan="23">
+      <img class="verification-form__logo" src="../assets/img/logo.png" alt="" height="56">
+      <div class="verification-form__background-txt"> SIGN IN</div>
+      <h2 class="verification-form__title">Resend Verification</h2>
+      <p class="verification-form__subtitle">Trading Made Smooth And Simple! </p>
+      <div>
+        <form [formGroup]="emailVerificationForm" (ngSubmit)="onSubmit(emailVerificationForm)">
+            <h6 nz-typography class="verification-form__verification-mail">Email</h6>
+        <nz-form-item>
+          <nz-form-control>
+            <input [nzBorderless]="true" nz-input name="Username" type="Username" id="Username" class="verification-form__txt-input" placeholder="Enter Your Email"
+              [class.is-invalid]="emailVerificationForm.get('email').invalid && emailVerificationForm.get('email').touched" formControlName="email">
+              <ng-container
+              *ngIf="(emailVerificationForm.get('email').invalid && emailVerificationForm.get('email').touched) || emailVerificationForm.get('email').dirty">
+              <p nz-typography *ngIf="emailVerificationForm.get('email').errors?.required" class="text-info"><strong>Email is
+                  required</strong></p>
+              <p nz-typography *ngIf="emailVerificationForm.get('email').errors?.pattern" class="text-info"><strong>Please provide a
+                  valid
+                  Email</strong></p>
+            </ng-container>
+          </nz-form-control>
+        </nz-form-item>
+          <button type="submit" class="verification-form__register-btn"
+          [disabled]="emailVerificationForm.invalid" >Resend</button>
+        </form>
+      </div>
+      <div nz-row nzLinkRouter class="verification-tag">
+        <div nz-col>
+          <a href="#" class="verification-form__signin-tag" routerLink="/signin" routerLinkActive="active">Sign In</a>
+        </div>
+        <div nz-col>
+        <a href="#" class="verification-form__signin-tag" routerLink="/singnupEmail" routerLinkActive="active">Sign Up</a>
+      </div>
+    
+    </div>
+    </div>
+   
+  </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

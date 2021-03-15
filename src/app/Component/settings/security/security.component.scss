@@ -1,0 +1,141 @@
+$primary-color: #00bcc7;
+$switch-color: rgb(126, 125, 125);
+$auth-color: red;
+.security {
+  .password-txt {
+    color: $switch-color;
+  }
+  &__box-size {
+    width: 260px;
+    height: 2.5rem;
+  }
+  &__security-btn {
+    margin-top: 2rem;
+    border: none;
+    font-weight: 600;
+  }
+  &__password-save-btn:enabled{
+    background-color: $primary-color;
+    border: none;
+  }
+  &__auth-heading {
+    margin-top: 3rem;
+    width: max-content;
+    margin-bottom: 0;
+  }
+  &__auth-subtext {
+    width: max-content;
+    font-weight: 500;
+    color: $switch-color;
+  }
+  &__google-txt {
+    margin-top: 2rem;
+  }
+  &__toggle-switch {
+    margin-top: 40px;
+  }
+  &__switch-btn {
+    text-align: right;
+  }
+  &__api-txtkey {
+    margin-top: 1rem;
+  }
+  &__language-content {
+    margin-top: 2.5rem;
+  }
+  &__language-box {
+    width: 260px;
+  }
+  &__save-btn:enabled {
+    background-color: $primary-color;
+    border: none;
+    margin-top: 3rem;
+  }
+  &__save-btn {
+    border: none;
+    font-weight: 600;
+  }
+  &__Update-btn {
+    margin-top: 2rem;
+    background-color: $primary-color;
+    border: none;
+  }
+  &__send-mail-btn{
+    background-color: $primary-color;
+    border: none;
+  }
+  &__verify-btn:enabled{
+    background-color: $primary-color;
+    border: none;
+  }
+  &__verify-btn{
+    margin-top: 1rem;
+  }
+  
+  &__api-add-btn:enabled{
+    background-color: $primary-color;
+    border: none;
+  } 
+  
+  &__google-content {
+    color: $switch-color;
+    margin-top: 10px;
+  }
+  &__email-verify-Code-txt{
+    font-size: 20px;
+    margin-top: 1rem;
+  }
+  &__email-validate-txt{
+    color: $auth-color;
+  }
+  &__email-content {
+    color: $switch-color;
+    background-color: $primary-color;
+  }
+  &__email-box {
+    width: 260px;
+    height: 2.5rem;
+  }
+  &__Enable-btn {
+    margin-top: 2rem;
+    background-color: $primary-color;
+    border: none;
+  }
+  &__google-box {
+    width: 260px;
+    height: 2.5rem;
+  }
+  &__qrcode {
+    text-align: center;
+  }
+  &__sendmail-btn {
+    background-color: $primary-color;
+    border: none;
+  }
+  &__backup-txt {
+    color: $switch-color;
+  }
+  &__auth-txt {
+    color: $auth-color;
+  }
+  &__input-field{
+    width: 300px;
+    height: 40px;
+    font-size: 23px;
+  }
+  &__cancel-btn{
+    margin-left: 1rem;
+  }
+  &__email-modal{
+    border: none !important;
+    outline: none !important;
+  }
+  &__apikey-validate-txt{
+    color: $auth-color;
+  }
+  &__api-verfiy-input{
+    width: 300px;
+    height: 40px;
+    font-size: 23px;
+  }
+}

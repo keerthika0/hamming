@@ -1,0 +1,165 @@
+<app-header></app-header>
+<app-sidenav *ngIf="isShown === false"></app-sidenav>
+<nz-layout class="dashbord">
+  <!-- <nz-header class="dashbord__header">
+    <div nz-row  class="dashbord__nav-bar">
+      <div nz-col nzSpan="6">
+        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+          &#9776;
+        </button>
+        <img src="../../assets/img/logo1.svg" alt="" height="45">
+      </div>
+      <div nz-col nzSpan="10">
+        <h4 class="dashbord__nav-title">NexFolio</h4>
+      </div>
+      <div nz-col nzSpan="8" class="dashbord__notification">
+        <ng-template #contentTemplateBell>
+          <div class="dashbord__bell-popup">
+            <h3>Notification</h3>
+            <a class="dashbord__popover-tag" href="#">view All</a>
+          </div>
+          <div>
+            <p class="dashbord__popover-content">No new notification</p>
+          </div>
+        </ng-template>
+        <button class="dashbord__bell-btn" nz-button nz-popover nzType="primary"
+          [nzPopoverContent]="contentTemplateBell" nzPopoverTrigger="hover"><img src="../../assets/img/svg/bell.svg"
+            alt=""></button>
+        <ng-template #contentTemplate>
+          <div>
+            <a href="#" class="dashbord__popup-txt">Support</a><br>
+            <a href="#" class="dashbord__popup-txt">Sign Out</a>
+          </div>
+        </ng-template>
+        <button class="dashbord__nav-btn" nz-button nz-popover nzType="primary" [nzPopoverContent]="contentTemplate"
+          nzPopoverTrigger="hover" nzSize="large" nzShape="circle">R</button>
+      </div>
+    </div>
+    <hr class="dashbord__hr-tag">
+  </nz-header> -->
+</nz-layout>
+<nz-layout>
+   <!-- <nz-sider [ngbCollapse]="isMenuCollapsed" class="dashbord__aside navbar navbar-expand-lg navbar-light" [routerLink]="'.'"> 
+   <ul nz-menu nzTheme="light" class="dashbord__aside">
+    <li nz-menu-item class="dashbord__aside-content" [routerLink]="'.'" (click)="isMenuCollapsed">
+      <img src="../../assets/img/svg/bell.svg" alt="">
+      <span class="dashbord__aside-txt">Dashboard</span>
+    </li>
+    <li nz-menu-item class="dashbord__aside-content" [routerLink]="'/smarttrade'" (click)="isMenuCollapsed">
+      <img src="../../assets/img/svg/bell.svg" alt="">
+      <span class="dashbord__aside-txt">SmartTrade</span>
+    </li>
+    <li nz-menu-item class="dashbord__aside-content" [routerLink]="'.'" (click)="isMenuCollapsed">
+      <img src="../../assets/img/svg/bell.svg" alt="">
+      <span class="dashbord__aside-txt">NexFolioFX</span>
+    </li>
+    <li nz-menu-item class="dashbord__aside-content" [routerLink]="'.'" (click)="isMenuCollapsed">
+      <img src="../../assets/img/svg/bell.svg" alt="">
+      <span class="dashbord__aside-txt">MarketPlace</span>
+    </li>
+    <li nz-menu-item class="dashbord__aside-content" [routerLink]="'/settings'" (click)="isMenuCollapsed">
+      <img src="../../assets/img/svg/bell.svg" alt="">
+      <span class="dashbord__aside-txt">Settings</span>
+    </li>
+  </ul> 
+   </nz-sider>  -->
+</nz-layout>
+<section>
+  <div nz-row>
+    <div nz-col nzOffset="2">
+    </div>
+    <div nz-col nzXs="24" nzSm="22" nzMd="22" nzLg="22" nzXl="22">
+      <div>
+        <h2 class="dashbord__title-txt">Dashboard</h2>
+      </div>
+    </div>
+  </div>
+  <div nz-row >
+    <div nz-col nzOffset="2">
+    </div>
+    <div nz-col nzXs="24" nzSm="7" nzMd="7" nzLg="7" nzXl="7">
+        <nz-card class="dashbord__border-box" [nzBordered]="false">
+          <img class="dashbord__profit-icon"src="../../assets/img/svg/profit.svg" alt="">
+          <h5 class="dashbord__border-txt">Total Profits </h5>
+          <h3 class="dashbord__border-content">-98.82 USDT</h3>
+          <h4 class="dashbord__border-subcontent">O BTC</h4>
+      </nz-card>
+
+    </div>
+    <div nz-col nzXs="24" nzSm="7" nzMd="7" nzLg="7" nzXl="7">
+      <div nz-row>
+        <div nz-col nzXs="24" nzSm="11" nzMd="11" nzLg="11" nzXl="11">
+          <nz-card [nzBordered]="false" class="dashbord__sub-box">
+            <h5 class="dashbord__sub-title">Total Spot Trades</h5>
+            <h3 class="dashbord__sub-content">100</h3>
+          </nz-card>
+        </div>
+        <div nz-col nzXs="24" nzSm="11" nzMd="11" nzLg="11" nzXl="11">
+          <nz-card [nzBordered]="false" class="dashbord__sub-box1">
+            <h5 class="dashbord__sub-title1">Total Fx Trades</h5>
+            <h3 class="dashbord__sub-content1">0</h3>
+          </nz-card>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzXs="24" nzSm="11" nzMd="11" nzLg="11" nzXl="11">
+          <nz-card [nzBordered]="false" class="dashbord__sub-box2">
+            <h5 class="dashbord__sub-title2">Good Decisions</h5>
+            <h3 class="dashbord__sub-content2">66</h3>
+          </nz-card>
+        </div>
+        <div nz-col nzXs="24" nzSm="11" nzMd="11" nzLg="11" nzXl="11">
+          <nz-card  [nzBordered]="false" class="dashbord__sub-box3">
+            <h5 class="dashbord__sub-title3">Bad Decisions</h5>
+            <h3 class="dashbord__sub-content3">33</h3>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+    <div nz-col nzXs="24" nzSm="7" nzMd="7" nzLg="7" nzXl="7">
+      <nz-card  [nzBordered]="false" class="dashbord__chart-box">
+        <canvas height="7vh" width="18vw" baseChart [data]="pieChartData" [labels]="pieChartLabels"
+          [chartType]="pieChartType" boxWidth="4" [options]="pieChartOptions" [colors]="piechartColors"
+          [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+        </canvas>
+      </nz-card>
+         <nz-card  [nzBordered]="false" class="dashbord__chart-box1">
+          <h5 class="dashbord__sub-title1">Last Transaction</h5>
+          <h3 class="dashbord__sub-content1">33</h3>
+        </nz-card>
+    </div>
+  </div>
+</section> 
+ <section>
+  <div nz-row>
+    <div nz-col nzOffset="2">
+    </div>
+    <div nz-col nzXs="24" nzSm="10" nzMd="10" nzLg="10" nzXl="10">
+      <h6 class="dashbord__profit-txt">Profit In Last 30 Days</h6>
+      <nz-statistic [nzValue]="(-98.32| number)!"></nz-statistic>
+    </div>
+    <div nz-col nzXs="24" nzSm="10" nzMd="10" nzLg="10" nzXl="10">
+      <button class="dashbord__dropdown-btn" nz-button nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click">USTD <img
+          class="dashbord__down-arrow" src="../../assets/img/svg/down-arrow.svg" alt=""></button>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item>BTC</li>
+          <li nz-menu-item>USDT</li>
+        </ul>
+      </nz-dropdown-menu>
+    </div>
+  </div>
+</section>
+<section>
+  <div nz-row>
+    <div nz-col nzOffset="2">
+    </div>
+    <div nz-col nzXs="24" nzSm="19" nzMd="19" nzLg="19" nzXl="19s">
+      <canvas height="13vh" width="80vw" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+        [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
+      </canvas>
+    </div>
+    <div nz-colnzOffset="3">
+    </div>
+  </div>
+</section>

@@ -1,0 +1,122 @@
+<form [formGroup]="signUp" (ngSubmit)="sign()">
+    <div class="signup-responsive" *ngIf="showDiv.previous" formGroupName="user">
+        <div nz-row class="signup-form">
+            <div nz-col nzSpan="1">
+            </div>
+            <div nz-col nzSpan="20">
+                <img class="signup-form__logo" src="../assets/img/logo.png" alt="" height="56">
+                <div class="signup-form__background-txt"> SIGN UP</div>
+                <h2 nz-typography class="signup-form__title ">Sign up</h2>
+                <p nz-typography class="signup-form__subtitle"><strong>Trading Made Smooth And Simple!</strong></p>
+                <div>
+                    <h6 nz-typography class="signup-form__signup-mail">Username</h6>
+                    <nz-form-item>
+                        <nz-form-control>
+                            <input nz-input [nzBorderless]="true" name="Username" type="Username" id="Username" class="signup-form__txt-input"
+                                placeholder="Enter Here" formControlName="userName">
+                            <ng-container *ngIf="signUp.get('user.userName').touched &&signUp.get('user.userName').invalid">
+                                <p nz-typography *ngIf="signUp.get('user.userName').errors.required" class="signup-form__danger-txt"><strong>Username is
+                                        required</strong></p>
+                                <p nz-typography *ngIf="signUp.get('user.userName').errors.minlength" class="signup-form__danger-txt"><strong>Please
+                                        enter a Username between 3 & 20 characters and only alphabets</strong></p>
+                                <p nz-typography *ngIf="signUp.get('user.userName').errors.maxlength" class="signup-form__danger-txt"><strong>Enter
+                                        a username Min 3 Characters and Max 20 Character and only Alphabets</strong></p>
+                                <p nz-typography *ngIf="signUp.get('user.userName').errors.pattern" class="signup-form__danger-txt"> <strong>Should
+                                        Contain Only alphabets</strong></p>
+                            </ng-container>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <h6 nz-typography class="signup-form__signup-mail">Email</h6>
+                    <nz-form-item>
+                        <nz-form-control>
+                            <input nz-input [nzBorderless]="true" name="email" type="email" id="email" class="signup-form__txt-input"
+                                placeholder="Enter Your Email" formControlName="email">
+                                <ng-container *ngIf="signUp.get('user.email').touched && signUp.get('user.email').invalid">
+                                    <p nz-typography *ngIf="signUp.get('user.email').errors.required" class="signup-form__danger-txt"><strong>Email is
+                                            required</strong> </p>
+                                    <p nz-typography *ngIf="signUp.get('user.email').errors.pattern" class="signup-form__danger-txt"><strong>Please
+                                            enter
+                                            a valid Email</strong> </p>
+                                </ng-container>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <button type="submit" class="signup-form__register-btn"
+                        (click)="showDiv.previous = !showDiv.previous;showDiv.current = false;showDiv.next = false"
+                        [disabled]="!signUp.get('user').valid"><img src="../../../assets/img/svg/arrow-right.svg" alt="">
+                    </button>
+                </div>
+                <div nz-row nzLinkRouter>
+                    <div nz-col>
+                        <a href="#" class="signup-form__signup-tag " routerLink="/signin" routerLinkActive="active">Sign In</a>
+                    </div>
+                    <div nz-col>
+                        <a href="#" class="signup-form__signup-tag " routerLink="/emailVerification" routerLinkActive="active">
+                            Resend Verification</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- password and confirm password -->
+    <div class="signup-responsive" *ngIf="!showDiv.next" formGroupName="passWord">
+        <!-- <b>Response from child : "{{ receivedChildMessage | json }}"</b> -->
+        <div nz-row class="signup-form">
+            <div nz-col nzSpan="1">
+            </div>
+            <div nz-col nzSpan="20">
+                <img class="signup-form__logo" src="../assets/img/logo.png" alt="" height="56">
+                <div class="signup-form__background-txt"> Sign up</div>
+                <h2 nz-typography class="signup-form__title ">sign up</h2>
+                <p nz-typography class="signup-form__subtitle"><strong>Trading Made Smooth And Simple!</strong></p>
+                <div>
+
+                    <div class="form-group  ">
+                        <label class="signup-form__signup-mail">Password</label><br>
+                        <input nz-input [nzBorderless]="true" type="password" class="signup-form__txt-input"
+                            placeholder="Enter a Strong password" formControlName="password">
+                        <ng-container *ngIf="signUp.get('passWord.password').touched &&signUp.get('passWord.password').invalid">
+                            <p nz-typography 
+                                *ngIf="signUp.get('passWord.password').errors.required" class="signup-form__danger-txt"><strong>Please Enter
+                                    Password</strong> </p>
+                            <p nz-typography
+                                *ngIf="signUp.get('passWord.password').errors.pattern" class="signup-form__danger-txt"><strong>Password must contain one
+                                    small character,one large character,one number, special characters and minimum 8
+                                    digits</strong> </p>
+                        </ng-container>
+                    </div>
+                    <div class="form-group">
+                        <label class="signup-form__signup-mail">Confirm Password</label><br>
+                        <input nz-input [nzBorderless]="true" type="password" class="signup-form__txt-input pt-1 pb-1"
+                            placeholder="Confirm Your Password" formControlName="confirmPassword">
+                        <ng-container *ngIf="signUp.get('passWord.confirmPassword').touched &&signUp.get('passWord.confirmPassword').invalid">
+                            <p nz-typography  *ngIf="signUp.get('passWord.confirmPassword').errors.required" class="signup-form__danger-txt"><strong>Password Does Not
+                                    Match</strong>
+                            </p>
+                            <p nz-typography  *ngIf="signUp.get('passWord.confirmPassword').errors.pattern" class="signup-form__danger-txt">
+                                <strong>Uh-oh! The Password don't match</strong>
+                            </p>
+                        </ng-container>
+                    </div>
+                    <div>
+                        <button type="button" class=" signup-form__back-btn"
+                            (click)="showDiv.previous = !showDiv.previous;showDiv.current = true;showDiv.next = true"><img src="../../../assets/img/svg/arrow-left.svg" alt="">
+                                </button>
+
+                        <button type="submit" class="signup-form__register-btn"
+                            [disabled]="!signUp.get('passWord').valid"><img src="../../../assets/img/svg/arrow-right.svg" alt=""></button>
+                    </div>
+                </div>
+                <div nz-row nzLinkRouter>
+                    <div nz-col>
+                        <a href="#" class="signup-form__signup-tag " routerLink="/signin" routerLinkActive="active">Sign In</a>
+                    </div>
+                    <div nz-col>
+                        <a href="#" class="signup-form__signup-tag " routerLink="/emailVerification" routerLinkActive="active">
+                            Resend Verification</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

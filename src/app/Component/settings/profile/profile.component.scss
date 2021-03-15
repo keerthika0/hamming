@@ -1,0 +1,44 @@
+
+
+$text-color:#ffff;
+$empty-txt: red;
+$primary-color:#00bcc7;
+.profile
+{
+    padding: 0;
+&__avatar-text{
+    display: inline-flex;
+    margin: 0;
+}
+&__user-name{   
+    padding-left:20px;
+    padding-bottom:30px;
+    font-weight: 900;
+}
+&__Profile-btn{
+    margin-top:30px;
+    font-weight: 600;
+    color: $text-color;
+}
+&__date-picker{
+   width:90%;
+}
+&__label-txt{
+    color:$text-color;
+}
+&__empty-txt{
+    color:$empty-txt;
+}
+&__save-btn:enabled{
+    margin-top:35px;
+    font-weight: 600;
+    color: $text-color;
+    border: none;
+    background-color: $primary-color;
+    
+}
+&__text-select{
+    font-size: 40px;
+    font-weight: 600;
+    }
+}

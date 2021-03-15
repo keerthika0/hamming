@@ -1,0 +1,314 @@
+<section class="security">
+    <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+        <div nz-col nzXs="24" nzSm="24" nzMd="3" nzLg="3" nzXl="3"></div>
+        <div nz-col nzXs="24" nzSm="24" nzMd="10" nzLg="16" nzXl="12">
+            <h3 nz-typography>Change Password</h3>
+            <div nz-col nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="10" nzXl="10"></div>
+            <form nz-form [formGroup]="securityForm" (ngSubmit)="onSubmit(securityForm)">
+                <h6 nz-typography class="security__password-txt">Old Password</h6>
+                <nz-form-item>
+                    <nz-from-control>
+                        <input class="security__box-size" type="password" nz-input formControlName="oldPassword"
+                            [class.is-invalid]="securityForm.get('oldPassword').invalid && securityForm.get('oldPassword').touched">
+                        <ng-container *ngIf="(securityForm.get('oldPassword').invalid && securityForm.get('oldPassword').touched) ||
+                                            securityForm.get('oldPassword').dirty">
+                            <p nz-typography *ngIf="securityForm.get('oldPassword').errors?.required"
+                                class="security__auth-txt">
+                                Password required
+                            </p>
+                            <p nz-typography *ngIf="securityForm.get('oldPassword').errors?.pattern"
+                                class="security__auth-txt">please
+                                enter valid
+                                Password</p>
+                        </ng-container>
+                    </nz-from-control>
+                </nz-form-item>
+                <div nz-row>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="9" nzLg="9" nzXl="9">
+                        <h6 nz-typography class="security__password-txt">New Password</h6>
+                        <nz-form-item>
+                            <nz-from-control>
+                                <input class="security__box-size" type="password" nz-input formControlName="password"
+                                    [class.is-invalid]="securityForm.get('password').invalid && securityForm.get('password').touched">
+                                <ng-container
+                                    *ngIf="(securityForm.get('password').invalid && securityForm.get('password').touched) ||
+                                                                                                            securityForm.get('password').dirty">
+                                    <p nz-typography *ngIf="securityForm.get('password').errors?.required"
+                                        class="security__auth-txt">Password required
+                                    </p>
+                                    <p nz-typography *ngIf="securityForm.get('password').errors?.pattern"
+                                        class="security__auth-txt">
+                                        Please provide strong password
+                                    </p>
+                                </ng-container>
+                            </nz-from-control>
+                        </nz-form-item>
+                    </div>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="2" nzLg="2" nzXl="3"></div>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="9" nzXl="9">
+                        <h6 nz-typography class="security__password-txt">Confirm New Password</h6>
+                        <nz-form-item>
+                            <nz-from-control>
+                                <input class="security__box-size" type="password" nz-input
+                                    formControlName="confirmPassword"
+                                    [class.is-invalid]="securityForm.get('confirmPassword').invalid && securityForm.get('confirmPassword').touched">
+                                <ng-container
+                                    *ngIf="(securityForm.get('confirmPassword').invalid && securityForm.get('confirmPassword').touched) ||
+                                                                                                    securityForm.get('confirmPassword').dirty">
+                                    <p nz-typography *ngIf="securityForm.get('confirmPassword').errors?.required"
+                                        class="security__auth-txt">Password
+                                        required
+                                    </p>
+                                    <p nz-typography *ngIf="securityForm.get('confirmPassword').errors?.pattern"
+                                        class="security__auth-txt">
+                                        Uh-oh! The Password don't match
+                                    </p>
+                                </ng-container>
+                            </nz-from-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+                <div class="security__security-btn">
+                    <button class="security__password-save-btn" nz-button nzType="primary" [nzSize]="size"
+                        nzShape="round" [disabled]="securityForm.invalid">Save</button>
+                </div>
+            </form>
+            <div nz-row>
+                <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="10">
+                    <div class="security__auth-heading">
+                        <h3 nz-typography>Two-Factor Authentication</h3>
+                    </div>
+                    <div>
+                        <p nz-typography class="security__auth-subtext">For Additional Security, Please enable 2FA</p>
+                    </div>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzXs="20" nzSm="20" nzMd="15" nzLg="15" nzXl="18" class="security__google-txt">
+                    <h6 nz-typography>Google Authentication</h6>
+                </div>
+                <div nz-col nzXs="2" nzSm="2" nzMd="2" nzLg="2" nzXl="2" class="security__toggle-switch">
+                    <nz-switch [(ngModel)]="googleAuthSwitch" (click)="toggle()" *ngIf="!show">
+                    </nz-switch>
+                </div>
+                <div nz-row>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="5" nzLg="5" nzXl="5">
+                        <ng-container *ngIf="show">
+                            <img class="security__qrcode"
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAYAAAAZtYVBAAAAAklEQVR4AewaftIAAAYtSURBVO3BQY4cSRLAQDLQ//8yV0c/JZCoam2M4Gb2B2td4rDWRQ5rXeSw1kUOa13ksNZFDmtd5LDWRQ5rXeSw1kUOa13ksNZFDmtd5LDWRQ5rXeSw1kV++JDK31Txm1SmiicqU8WkMlVMKp+oeKLyN1V84rDWRQ5rXeSw1kV++LKKb1L5hMonVJ5UTCpTxZOKT6hMFU8qvknlmw5rXeSw1kUOa13kh1+m8kbFGypvVEwqTyreqHhDZap4o+ITKm9U/KbDWhc5rHWRw1oX+eEfUzGpvFExqXyi4g2VJxWTylTxX3ZY6yKHtS5yWOsiP/xjVKaKJxVPKiaVqWJSmVSeVEwqT1T+ZYe1LnJY6yKHtS7ywy+r+JsqJpWpYlKZKiaVJyq/qeI3VdzksNZFDmtd5LDWRX74MpV/WcWkMlVMKlPFpDJVTCpTxaQyVTxRudlhrYsc1rrIYa2L/PChipuo/CaVqeJJxaQyVUwqU8UnKv5LDmtd5LDWRQ5rXcT+4AMqU8Wk8k0Vn1CZKiaVb6p4ojJVPFGZKp6ofFPFbzqsdZHDWhc5rHWRHz5UMal8U8WkMlU8UZkqJpWpYlKZKiaVJyp/k8obFZPK/9NhrYsc1rrIYa2L/PAhlaliUpkq3lD5RMWk8kbFpPKkYlKZKiaVNyreqJhUnlRMKn/TYa2LHNa6yGGti/zwyyomlaniScWkMqm8UTGpPFGZKp6o/CaVqWKqeEPlDZWp4psOa13ksNZFDmtdxP7gAypPKj6hMlVMKt9U8URlqniiMlU8UZkqJpUnFU9UpopJZar4mw5rXeSw1kUOa13E/uADKm9U/CaVqWJSeVIxqbxR8YbKVDGp/KaKJypvVHzisNZFDmtd5LDWRX74UMWk8gmVJxXfVPGk4iYVk8pUMalMFW9UTCpTxTcd1rrIYa2LHNa6iP3BB1SmiknljYo3VD5R8QmVqeKJyicq3lB5UjGpTBWTypOKTxzWushhrYsc1rrIDx+qmFTeqHii8k0V31QxqUwVTyomlTdUpoqpYlKZVKaK/6fDWhc5rHWRw1oXsT/4RSqfqJhU3qh4ojJVvKEyVTxReVIxqTypeKIyVbyhMlVMKlPFJw5rXeSw1kUOa13kh19WMalMFZPKpDJVPFGZVKaKqWJS+SaVqeITFZPKVPFEZar4RMU3Hda6yGGtixzWusgPH1J5UjFVTCpPKj5RMalMFX+TylQxqbxRMalMFW+oPFGZKr7psNZFDmtd5LDWRewPvkhlqphUPlExqTyp+CaVNyqeqEwVk8pUMam8UfEJlScVnzisdZHDWhc5rHWRHz6k8kRlqvibVN6oeKNiUplUnlRMKlPFGxWTyqQyVbxRMal802GtixzWushhrYv88GUVT1SeVEwqU8VNVKaKSWWqmFSmiicqU8Wk8qTiicpUMalMFd90WOsih7UucljrIj/8ZRVPVKaKNyqeqEwVk8pU8aTiScWTiknlDZVPqDxRmSp+02GtixzWushhrYv88MtUpoo3VD6h8kRlqviEypOKSWWqmFSmiknlDZUnFf9Ph7UucljrIoe1LmJ/8B+mMlX8TSpPKiaVNyomlScVb6hMFZPKGxWfOKx1kcNaFzmsdZEfPqTyN1VMFZPKVDGpTBWTylQxqTypmFSmikllqvgmlaniicqTit90WOsih7UucljrIj98WcU3qTxReaPiScWkMlV8QmWq+E0V/yWHtS5yWOsih7Uu8sMvU3mj4hMVb6i8oTJVvFExqUwVk8pUMalMKt9UMalMFd90WOsih7UucljrIj/841SmiicVT1QmlTdUpopJZaqYVKaKT6i8UTGpTBWfOKx1kcNaFzmsdZEf/jEqT1SmiknlScUTlaliUplUnqh8QmWqmComlUllqpgqvumw1kUOa13ksNZFfvhlFb+pYlKZKt6omFSeqEwVTyqeqDypmFSmik9UTCp/02GtixzWushhrYv88GUqf5PKE5UnFZPKVPGGylQxqUwVU8Wk8obKb1KZKr7psNZFDmtd5LDWRewP1rrEYa2LHNa6yGGtixzWushhrYsc1rrIYa2LHNa6yGGtixzWushhrYsc1rrIYa2LHNa6yGGti/wPcpoNZSjzlZwAAAAASUVORK5CYII="
+                                alt="QrCodeImage">
+                        </ng-container>
+                    </div>
+                    <div nz-col nzXs="24" nzSm="24" nzMd="2" nzLg="1" nzXl="2"></div>
+                    <div nz-col nzXs="23" nzSm="23" nzMd="11" nzLg="11" nzXl="11">
+                        <ng-container *ngIf="show">
+                            <h6 class="security__google-content" nz-typography
+                                nzContent="1) Get Google Authentication from App Store or Google Play Store and set up an account."
+                                class="security__backup-txt"></h6>
+                            <h6 nz-typography
+                                nzContent="2) Scan the Qr Code or enter the Backup key. Save the Backup Key"
+                                class="security__backup-txt">
+                            </h6>
+                            <h6 nz-typography nzContent="Save backup key" class="security__backup-txt"></h6>
+                        </ng-container>
+                    </div>
+                    <div nz-row *ngIf="show">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+                            <h6 nz-typography nzContent="Enter the Authentication Code" class="security__backup-txt">
+                            </h6>
+                            <input class="security__google-box" type="" nz-input placeholder="Enter the 6-digit Code">
+                        </div>
+                        <div nz-col>
+                            <button nz-button nzType="primary" [nzSize]="googleEnable" nzShape="round"
+                                class="security__Enable-btn">Enable</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzXs="22" nzSm="22" nzMd="16" nzLg="16" nzXl="19">
+                    <nz-divider></nz-divider>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzXs="20" nzSm="20" nzMd="15" nzLg="15" nzXl="18" class="security__google-auth-heading">
+                    <h6 nz-typography>Email Authentication</h6>
+                </div>
+                <div nz-col nzXs="2" nzSm="2" nzMd="2" nzLg="2" nzXl="2">
+                    <nz-switch [(ngModel)]="emailAuthSwitch" (click)="emailtoggle()" *ngIf="!emailcontent">
+                    </nz-switch>
+                </div>
+                <div nz-row>
+                    <div nz-col nzXs="14" nzSm="14" nzMd="18" nzLg="18" nzXl="18">
+                        <ng-container *ngIf="emailcontent" class="security__email-content">
+                            <h5 nz-typography nzContent="Email"></h5>
+                            <h6 nz-typography nzContent="akhil****y.com" class="security__backup-txt"></h6>
+                            <h6 nz-typography nzContent="Email Verification Code" class="security__backup-txt"></h6>
+                            <input class="security__email-box" type="" nz-input>
+                            <button nz-button nzType="primary" [nzSize]="Emailenable" nzShape="round"
+                                class="security__Enable-btn">Enable</button>
+                        </ng-container>
+                    </div>
+                    <div nz-col nzXs="10" nzSm="10" nzMd="6" nzLg="6" nzXl="6" class="security__switch-btn">
+                        <ng-container *ngIf="emailcontent">
+                            <button class="security__sendmail-btn" nz-button nzType="primary" [nzSize]="Emailsize"
+                                nzShape="round">Send
+                                Mail</button>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div nz-col nzXs="24" nzSm="24" nzMd="10" nzLg="16" nzXl="8">
+            <h3 class="security__trade-txt" nz-typography>Smart Trade API & Secret Key</h3>
+            <h6 class="security__backup-txt">******************************aXsbvi</h6>
+            <button class="security__Update-btn" nz-button nzType="primary" [nzSize]="size"
+                nzShape="round" (click)="showModal()">Add</button>
+            <div class="security__api-txtkey">
+                <h3 nz-typography>Future API & Secret Key</h3>
+                <h6 class="security__backup-txt">******************************aXsbvi</h6>
+                <button class="security__Update-btn" nz-button nzType="primary" [nzSize]="size"
+                    nzShape="round">Update</button>
+            </div>
+            <div class="security__language-content">
+                <h3 nz-typography>Languages</h3>
+                <h6 class="security__backup-txt">Choose Language</h6>
+            </div>
+            <div>
+                <nz-select class="security__language-box" nzPlaceHolder="Choose Language" nzAllowClear
+                    [ngModel]="selectedLanguage">
+                    <nz-option [nzValue]="data.value" [nzLabel]="data.name" *ngFor="let data of languages">
+                    </nz-option>
+                </nz-select>
+            </div>
+            <button class="security__save-btn" nz-button nzType="primary" [nzSize]="size" nzShape="round">Save</button>
+        </div>
+    </div>
+</section>
+<!-- modal add key -->
+
+<nz-modal
+      [(nzVisible)]="isVisible"
+      nzTitle="Email Authentication"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()"
+      [nzOkLoading]="isOkLoading"
+      [nzFooter]="null"
+      nzWidth="400px"
+      class="security__email-modal"
+      *ngIf="showDiv.previous"
+    > 
+        <section>
+            <div nz-row>
+                <div nz-col  nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+                    <form nz-form [formGroup]="emailVerifyForm" (ngSubmit)="emailVerifySubmit()">
+                        <div formGroupName="verify">
+                            <nz-form-item>
+                                <nz-from-control>
+                                    <div nz-row>
+                                        <div nz-col nzXs="17" nzSm="6" nzMd="24" nzLg="12" nzXl="17">
+                                            <h5 nz-typography>Email</h5>
+                                            <h6 nz-typography class="email-txt">akhil*****@.com</h6>
+                                        </div>
+                                        <!-- <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="3" nzXl="8" ></div> -->
+                                        <div nz-col nzXs="6" nzSm="6" nzMd="24" nzLg="6" nzXl="4">
+                                            <button class="email-auth-btn" nz-button nzType="primary" nzSize="default" nzShape="round"
+                                                class="security__send-mail-btn">Send
+                                                Mail</button>
+                                        </div>
+                                    </div>
+                                    <div nz-row>
+                                        <div nz-col nzXs="17" nzSm="6" nzMd="24" nzLg="24" nzXl="24">
+                                            <p nz-typography class="security__email-verify-Code-txt">Email Verification Code</p>
+                                            <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+                                                <input nz-input placeholder="Enter Code" nzSize="default" class="security__input-field"
+                                                    formControlName="emailVerificationCode" />
+                                            </div>
+                                            <ng-container
+                                                *ngIf="emailVerifyForm.get('verify.emailVerificationCode').touched && emailVerifyForm.get('verify.emailVerificationCode').invalid">
+                                                <h6 nz-typography class="security__auth-txt"
+                                                    *ngIf="emailVerifyForm.get('verify.emailVerificationCode').errors.required">Enter Code
+                                                </h6>
+                                                <h6 nz-typography class="security__auth-txt"
+                                                    *ngIf="emailVerifyForm.get('verify.emailVerificationCode').errors.minlength">Enter Valid Code</h6>
+                                            </ng-container>
+                                    
+                                            <button class="security__verify-btn" nz-button nzType="primary" [nzSize]="size" nzShape="round"
+                                                (click)="smarttradeApi()"
+                                                (click)="showDiv.previous = !showDiv.previous;showDiv.current = false;showDiv.next = false"
+                                                [disabled]="!emailVerifyForm.get('verify').valid">Verify</button>
+                                        </div>
+                                    </div>
+                                </nz-from-control>
+                            </nz-form-item>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+</nz-modal>
+
+<nz-modal
+    [(nzVisible)]="isVisible"
+    nzTitle="Smart Trade"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+    [nzOkLoading]="isOkLoading"
+    [nzFooter]="null"
+    nzCancelText="Cancel"
+    (nzOnCancel)="handleCancel()"
+    nzWidth="400px"
+    *ngIf="!showDiv.next"
+    >
+    <form nz-form [formGroup]="apiKeyForm" (ngSubmit)="apiKeySubmit()">
+        <section>
+            <div nz-row>
+                <div formGroupName="api">
+                    <div nz-col>
+                        <nz-from-item>
+                            <nz-form-control>
+                                <h5 nz-typography>API Key</h5>
+                                <input nz-input nzSize="default" class="security__api-verfiy-input" formControlName="apiKey" />
+                                <ng-container
+                                    *ngIf="apiKeyForm.get('api.apiKey').touched && apiKeyForm.get('api.apiKey').invalid">
+                                    <h6 nz-typography *ngIf="apiKeyForm.get('api.apiKey').errors.required"
+                                        class="security__apikey-validate-txt">Please Input Your api key!
+                                    </h6>
+                                    <h6 nz-typography *ngIf="apiKeyForm.get('api.apiKey').errors.minlength"
+                                        class="security__apikey-validate-txt">Please Enter Valid api key!</h6>
+                                </ng-container>
+                            </nz-form-control>
+                        </nz-from-item>
+                    </div>
+                    <div nz-col class="secret-key">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <h5 nz-typography>Secret Key</h5>
+                                <input nz-input nzSize="default" class="security__api-verfiy-input"  formControlName="secretKey" />
+                                <ng-container
+                                    *ngIf="apiKeyForm.get('api.secretKey').touched && apiKeyForm.get('api.secretKey').invalid">
+                                    <h6 nz-typography *ngIf="apiKeyForm.get('api.secretKey').errors.required"
+                                        class="security__apikey-validate-txt">Please Input Your secret key!
+                                    </h6>
+                                    <h6 nz-typography *ngIf="apiKeyForm.get('api.secretKey').errors.minlength"
+                                        class="security__apikey-validate-txt">Please Enter Valid secret key!</h6>
+                                </ng-container>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div nz-col>
+                        <button type="submit" class="security__verify-btn" nz-button nzType="primary" [nzSize]="size"
+                        [disabled]="!apiKeyForm.get('api').valid" nzShape="round"
+                        click="close()">Add</button>
+                        <button class="" nz-button nzType="primary" [nzSize]="size" nzShape="round" class="security__cancel-btn"
+                            (click)="secretApi()"
+                            (click)="showDiv.previous = !showDiv.previous;showDiv.current = true;showDiv.next = true">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</nz-modal>
+
+
+<!--end of modal add key -->

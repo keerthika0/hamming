@@ -1,0 +1,26 @@
+<app-header></app-header>
+<app-sidenav *ngIf="isVisible === false"></app-sidenav>
+<section class="settings-section">
+  <div nz-row>
+    <div nz-col nzXs="22" nzSm="22" nzMd="22" nzLg="22" nzXl="22" nzOffset="2">
+      <div nz-col>
+        <h2 class="settings-heading">Settings</h2>
+        <nz-tabset  [nzTabPosition]="nzTabPosition" [nzAnimated]="nzAnimated"
+          [nzSelectedIndex]="tabIndex" id="settingTab">
+          <nz-tab class="settingTabSet"nzTitle="Profile">
+            <app-profile></app-profile>
+          </nz-tab>
+          <nz-tab class="settingTabSet" nzTitle="Security">
+            <app-security></app-security>
+          </nz-tab>
+          <nz-tab class="settingTabSet" nzTitle="ActivityLog">
+            <app-activity-log></app-activity-log>
+          </nz-tab>
+          <nz-tab class="settingTabSet" nzTitle="AuthorizedDevices">
+            <app-authorize-device></app-authorize-device>
+          </nz-tab>
+        </nz-tabset>
+      </div>
+    </div>
+  </div>
+</section>

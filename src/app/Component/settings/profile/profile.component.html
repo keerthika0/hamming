@@ -1,0 +1,118 @@
+<section class="profile">
+  <div nz-row>
+    <div nz-col nzOffset="3"></div>
+    <div nz-col nzXs="24" nzSm="24" nzMd="8" nzLg="8" nzXl="8">
+      <div nz-row>
+        <div nz-col>
+          <div class="profile__avatar-text">
+            <div>
+
+              <nz-avatar class="profile__text-select" nzText="A" [nzSize]="70"
+                [ngStyle]="{ 'background-color': color }"></nz-avatar>
+            </div>
+            <div class="profile__user-name">
+              <h4>Akhil</h4>
+              <h6> &nbsp;akhil****y.com </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form nz-form [formGroup]="ProfileForm" (ngSubmit)="Profile(ProfileForm)">
+        <div>
+          <div nz-row>
+            <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="12">
+              <h6 nz-typography class="profile__label-txt">DOB</h6>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Select a date">
+                  <nz-date-picker class="profile__date-picker" formControlName="date" [nzDisabledDate]="disabledDate">
+                  </nz-date-picker>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+            <div nz-col nzXs="23" nzSm="23" nzMd="23" nzLg="12" nzXl="12">
+              <h6 nz-typography class="profile__label-txt">Mobile Number</h6>
+              <nz-form-item>
+                <nz-form-control>
+                  <input nz-input placeholder="mobile number"
+                    [class.is-invalid]="ProfileForm.get('mobile').invalid && ProfileForm.get('mobile').touched"
+                    formControlName="mobile">
+
+                  <ng-container *ngIf="(ProfileForm.get('mobile').invalid && ProfileForm.get('mobile').touched) ||
+                                                        ProfileForm.get('mobile').dirty">
+                    <p nz-typography *ngIf="ProfileForm.get('mobile').errors?.required" class="profile__empty-txt">
+                      please input your mobile!
+                    </p>
+                    <p nz-typography *ngIf="ProfileForm.get('mobile').errors?.pattern" class="profile__empty-txt">please
+                      enter valid
+                      mobile</p>
+                  </ng-container>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+          </div>
+          <div nz-row>
+            <div nz-col nzXs="23" nzSm="23" nzMd="24" nzLg="24" nzXl="24">
+              <h6 nz-typography class="profile__label-txt">Address</h6>
+              <nz-form-item>
+                <nz-form-control>
+                  <textarea rows="6" cols="60" formControlName="address" nz-input
+                    [class.is-invalid]="ProfileForm.get('address').invalid && ProfileForm.get('address').touched"
+                    id="address"></textarea>
+                  <ng-container *ngIf="(ProfileForm.get('address').invalid && ProfileForm.get('address').touched) ||
+                                                        ProfileForm.get('address').dirty">
+                    <small *ngIf="ProfileForm.get('address').errors?.required" class="profile__empty-txt"><strong>
+                        Please Input Your Address!</strong></small>
+
+                    <small *ngIf="ProfileForm.get('address').errors?.minlength" class="profile__empty-txt"><strong>
+                        Address needs to be between 20 to 50 characters!</strong></small>
+
+                    <small *ngIf="ProfileForm.get('address').errors?.maxlength" class="profile__empty-txt">
+                      <strong>
+                        Address needs to be between 20 to 50 characters!</strong></small>
+
+
+                  </ng-container>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+          </div>
+          <div nz-row>
+            <div nz-col nzXs="23" nzSm="23" nzMd="11" nzLg="11" nzXl="11">
+              <h6 nz-typography class="profile__label-txt">Country</h6>
+              <nz-form-item class="box-size">
+                <nz-form-control nzErrorTip="Select a country">
+                  <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Country" formControlName="country">
+
+                    <nz-option [nzLabel]="data.name" [nzValue]="data.name" *ngFor="let data of countryList"></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+            <div nz-col nzOffset="2"></div>
+            <div nz-col nzXs="23" nzSm="23" nzMd="11" nzLg="11" nzXl="11">
+              <h6 nz-typography class="profile__label-txt">ZIP Code</h6>
+              <nz-form-item>
+                <nz-form-control>
+                  <input nz-input
+                    [class.is-invalid]="ProfileForm.get('zipcode').invalid && ProfileForm.get('zipcode').touched"
+                    formControlName="zipcode">
+                  <ng-container *ngIf="(ProfileForm.get('zipcode').invalid && ProfileForm.get('zipcode').touched) ||
+                                                        ProfileForm.get('zipcode').dirty">
+                    <small *ngIf="ProfileForm.get('zipcode').errors?.required" class="profile__empty-txt"><strong>
+                        Please Input Your zipcode!</strong></small>
+                    <small *ngIf="ProfileForm.get('zipcode').errors?.pattern" class="profile__empty-txt"><strong>
+                        special characters not accepted!</strong></small>
+                  </ng-container>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+          </div>
+        </div>
+        <div nz-col class="profile__Profile-btn">
+          <button nz-button nzType="primary" [nzSize]="size" nzShape="round" [disabled]="ProfileForm.invalid"
+            class="profile__save-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

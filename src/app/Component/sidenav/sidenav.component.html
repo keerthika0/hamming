@@ -1,0 +1,37 @@
+<nz-layout *ngIf="isShow === false">
+    <ul nz-menu nzTheme="light" class="dashbord__aside">
+      <li nz-menu-item class="dashbord__aside-content"  routerLink="/components/dashboard" (click)="isMenuCollapsed">
+        <img src="../../../assets/img/coins/nav img/dashboard.svg" alt="">
+        <span class="dashbord__aside-txt">Dashboard</span>
+      </li>
+      <li nz-menu-item class="dashbord__aside-content"  routerLink="/components/smarttrade" (click)="isMenuCollapsed">
+        <img src="../../../assets/img/coins/nav img/smarttrade.svg" alt="">
+        <span class="dashbord__aside-txt">SmartTrade</span>
+      </li>
+      <li nz-menu-item class="dashbord__aside-content"  routerLink="/components/settings" (click)="isMenuCollapsed">
+        <img src="../../../assets/img/coins/nav img/settings.svg" alt="">
+        <span class="dashbord__aside-txt">Settings</span>
+      </li>
+    </ul>
+  </nz-layout>
+  <button nz-button  (click)="open()" id="bala" *ngIf="isShow === true">&#9776;</button>
+ 
+  <nz-drawer [nzClosable]="false" [nzVisible]="visible" [nzPlacement]="placement" id="aside-list"  (nzOnClose)="close()">
+    <ng-template nzDrawerContent>
+        <ul nz-menu nzTheme="light" >
+          <li nz-menu-item class="dashbord__aside-sublist"  routerLink="/components/dashboard" (click)="isMenuCollapsed">
+            <img src="../../../assets/img/coins/nav img/dashboard.svg" alt="">
+            <span class="dashbord__aside-txt">Dashboard</span>
+          </li>
+          <li nz-menu-item class="dashbord__aside-sublist"  routerLink="/components/smarttrade" (click)="isMenuCollapsed">
+            <img src="../../../assets/img/coins/nav img/smarttrade.svg" alt="">
+            <span class="dashbord__aside-txt">SmartTrade</span>
+          </li> 
+          <li nz-menu-item class="dashbord__aside-sublist"  routerLink="/components/settings" (click)="isMenuCollapsed">
+            <img src="../../../assets/img/coins/nav img/settings.svg" alt="">
+            <span class="dashbord__aside-txt">Settings</span>
+          </li>
+        </ul>
+    </ng-template>
+  </nz-drawer>
+<router-outlet></router-outlet>

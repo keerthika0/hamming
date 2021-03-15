@@ -1,0 +1,26 @@
+<section class="activitylog">
+  <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+    <div nz-col nzXs="24" nzSm="24" nzMd="3" nzLg="3" nzXl="3"></div>
+    <div nz-col nzXs="24" nzSm="24" nzMd="17" nzLg="17" nzXl="17">
+      <h3 nz-typography>Activity Log List</h3>
+      <nz-table #activityTable [nzData]="activityLogs" [nzFrontPagination]="true" nzShowPagination nzHideOnSinglePage>
+        <thead>
+          <tr>
+            <th class="table-title">DateTime</th>
+            <th class="table-title">Notes</th>
+            <th class="table-title">IP</th>
+            <th class="table-title">Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of activityTable.data">
+            <td>{{ data.datetime }}</td>
+            <td>{{ data.notes }}</td>
+            <td>{{ data.ip }}</td>
+            <td>{{ data.location }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</section>

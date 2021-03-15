@@ -1,0 +1,36 @@
+<nz-layout class="dashbord">
+    <nz-header class="dashbord__header">
+      <div nz-row  class="dashbord__nav-bar">
+        <div nz-col nzSpan="8">
+          <app-sidenav></app-sidenav>
+          <img class="dashbord__logo" src="../../assets/img/logo1.svg" alt="" height="45">
+        </div>
+        <div nz-col nzSpan="8">
+          <h4 class="dashbord__nav-title">NexFolio</h4>
+        </div>
+        <div nz-col nzSpan="8" class="dashbord__notification">
+          <ng-template #contentTemplateBell>
+            <div class="dashbord__bell-popup">
+              <h3>Notification</h3>
+              <a class="dashbord__popover-tag" href="#">view All</a>
+            </div>
+            <div>
+              <p class="dashbord__popover-content">No new notification</p>
+            </div>
+          </ng-template>
+          <button class="dashbord__bell-btn" nz-button nz-popover nzType="primary"
+            [nzPopoverContent]="contentTemplateBell" nzPopoverTrigger="hover"><img src="../../assets/img/svg/bell.svg"
+              alt=""></button>
+          <ng-template #contentTemplate>
+            <div>
+              <a href="#" class="dashbord__popup-txt">Support</a><br>
+              <a href="#" class="dashbord__popup-txt">Sign Out</a>
+            </div>
+          </ng-template>
+          <button class="dashbord__nav-btn" nz-button nz-popover nzType="primary" [nzPopoverContent]="contentTemplate"
+            nzPopoverTrigger="hover" nzSize="large" nzShape="circle">R</button>
+        </div>
+      </div>
+      <hr class="dashbord__hr-tag">
+    </nz-header>
+  </nz-layout>

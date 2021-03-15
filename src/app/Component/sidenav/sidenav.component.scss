@@ -1,0 +1,63 @@
+$primarycolor: #00bbc6;
+$secondarycolor: #ffffff;
+$iconcolor: #000000;
+$defaultcolor: #bfbfbf;
+$boxshadow: #888888;
+$slide-text: rgb(114, 113, 113);
+$fontfamily: sans-serif;
+$border-box: #37353d;
+$border-text: #7b828f;
+$box-background: #fcfcfc;
+$drop-down:#F0F0F0;
+
+.dashbord{
+
+&__aside-txt {
+  margin-left: 40px;
+  font-weight: 600;
+  color: $defaultcolor;
+  font-size: 16px;
+}
+&__aside {
+  padding: 0px;
+  height: 910px;
+  align-items: baseline;
+  position: fixed;
+  top:65px;
+  width:80px;
+  min-width:0;
+  z-index: 100;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  border-right: 1px solid $defaultcolor;
+  cursor: pointer;
+
+  &:hover{
+    width:260px;
+    box-shadow: 4px 10px 10px $boxshadow;
+  }
+}
+&__aside-content {
+  margin-top: 50px;
+  background-color: $secondarycolor;
+  white-space: normal;
+  border: none;
+  padding-left:30px;
+  outline: none; 
+}
+&__dashbord__aside-sublist{
+  background-color: $secondarycolor;
+  white-space: normal;
+  border: none;
+  outline: none;
+}
+}
+#bala {
+  z-index: 1;
+  border: none;
+  outline: none;
+  color: black;
+}
+
+
+

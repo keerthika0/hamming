@@ -1,0 +1,25 @@
+<app-header></app-header>
+<app-sidenav *ngIf="isVisible === false"></app-sidenav>
+<section>
+    <div nz-row>
+        <div nz-col nzSpan="7"></div>
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="10">
+            <div class="items">
+                <div class="binance-content-center">
+                    <img src="../../assets/img/coins/svg/bnb.svg" alt="bnb" class="bnb-svg" />
+                    <div>
+                        <h2 nz-typography class="heading-text">Link Your Binance Key</h2>
+                    </div>
+                    <div nzLinkRouter>
+                        <button class="binance-key-link-btn" nz-button nzType="primary" [nzSize]="size" nzShape="round"
+                            routerLink="/settings">Link</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

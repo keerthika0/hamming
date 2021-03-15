@@ -1,0 +1,61 @@
+<div nz-row class="signin-form">
+  <div nz-col nzSpan="1">
+  </div>
+  <div nz-col nzSpan="23">
+    <img nz-image class="signin-form__logo" src="../assets/img/logo.png" alt="" height="56">
+    <div class="signin-form__background-txt">Sign In</div>
+    <h2 nz-typography class=" signin-form__title">Sign In</h2>
+    <p nz-typography class="signin-form__subtitle">Streamline Your Trading Now</p>
+    <div>
+      <form [formGroup]="signinForm" (ngSubmit)="onSubmit(signinForm)">
+        <div class="form-group">
+          <h6 nz-typography class="signin-form__signin-mail">Email</h6>
+          <nz-form-item>
+            <nz-form-control>
+              <input nz-input [nzBorderless]="true" name="email" type="email" id="email" class="signin-form__txt-input"
+                placeholder="Enter Your Email" formControlName="email"
+                [class.is-invalid]="signinForm.get('email').invalid && signinForm.get('email').touched">
+                  <ng-container *ngIf="(signinForm.get('email').invalid && signinForm.get('email').touched) || signinForm.get('email').dirty">
+                    <p nz-typography *ngIf="signinForm.get('email').errors?.required" class="signin-form__danger-txt"><strong>Email is
+                        required</strong></p>
+                    <p nz-typography *ngIf="signinForm.get('email').errors?.pattern" class="signin-form__danger-txt"><strong>Please provide a valid
+                        Email</strong></p>
+                  </ng-container>
+            </nz-form-control>
+          </nz-form-item>
+          <h6 nz-typography class="signin-form__signin-mail">Password</h6>
+          <nz-form-item>
+            <nz-form-control>
+              <input nz-input [nzBorderless]="true" name="password" type="password" id="password" class="signin-form__txt-input" formControlName="password"
+                placeholder="Enter Password" [class.is-invalid]="signinForm.get('password').invalid && signinForm.get('password').touched">
+                <ng-container
+                *ngIf="(signinForm.get('password').invalid && signinForm.get('password').touched) || signinForm.get('password').dirty">
+                <p nz-typography *ngIf="signinForm.get('password').errors?.required" class="signin-form__danger-txt"><strong>Password is
+                    required</strong></p>
+                <p nz-typography *ngIf="signinForm.get('password').errors?.pattern" class="signin-form__danger-txt"><strong>Please provide a valid
+                    Password</strong></p>
+              </ng-container>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nzLinkRouter>
+          <a href="#" class="signin-form__signin-pwd" routerLink="/forgotPassword" routerLinkActive="active">Forget
+            Password?</a>
+        </div>
+        <div>
+          <button type="submit" class="signin-form__register-btn" [disabled]="signinForm.invalid"><img  src="../../../assets/img/svg/arrow-right.svg" alt=""></button>
+        </div>
+      </form>
+     
+     
+    </div>
+    <div nzLinkRouter>
+      <a href="#" type="button" class="signin-form__signin-tag" routerLink="/singnupEmail"
+        routerLinkActive="active">Sign up</a>
+    </div>
+  </div>
+</div>
+
+ 
+       
+       
